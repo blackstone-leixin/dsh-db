@@ -1,0 +1,8 @@
+dsh-db
+Copyright 2026 dsh-db contributors
+
+This product includes software adapted from @linxin666/dsh-ssh
+(https://www.npmjs.com/package/@linxin666/dsh-ssh), licensed under the
+Apache License, Version 2.0:
+  - the loopback request fence (lib/loopback.js)
+  - the plugin row / panel-slot structure modelled on that package
