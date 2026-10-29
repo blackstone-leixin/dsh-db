@@ -1,6 +1,6 @@
 {
   "name": "dsh-db",
-  "version": "0.3.4",
+  "version": "0.4.1",
   "description": "Database operations for the DSH web GUI: connection manager (~/.dsh/dsh-db.json, MySQL/MariaDB + PostgreSQL), table search, tree browser over databases / schemas / tables / columns, SQL editor with completion and result grid, and agent tools (db_list, db_search, db_schema, db_query). Hot-pluggable via cordis.patch.yml — no DSH source changes.",
   "icon": "icon.svg",
   "type": "module",

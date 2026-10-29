@@ -13,6 +13,7 @@ A database operations plugin for the DeepSeek Harness (DSH) web GUI and desktop 
 | Table search | Type a table name at the top of the tree; it searches the current database/schema by default. The **This DB/All DBs** button switches scope. Up to 200 hits; clicking one locates it and previews `SELECT … LIMIT 100`. |
 | Disconnect | Hover a connection row → power button: closes every pooled socket for that connection; the next query reconnects automatically. |
 | Context menu | Table/view (including search hits): view structure (columns dialog), preview, copy name/qualified name, ask agent, refresh columns; connection: edit/disconnect/delete; column: insert/copy. |
+| Structure search | The structure dialog filters columns by name, type or comment as you type. |
 | Quick preview | Double-click a table to run `SELECT * FROM <table> LIMIT 100`; click a column to insert its quoted name at the editor cursor. |
 | SQL console | Multi-line editor, `Ctrl+Enter` to run, sticky-header result grid, duration/row-count/truncation status, raw database errors. |
 | SQL completion | Keyword/table/column suggestions while typing, `Ctrl+Space` to open; `database.` / `table.` qualifiers and `FROM users u` aliases; quiet inside strings and comments. |
@@ -32,7 +33,7 @@ DSH Desktop deliberately never writes `dsh` into the system PATH, so plain Power
 ```powershell
 cd "<path-to-dsh-db>"
 pnpm pack
-dsh plugin add ".\dsh-db-0.3.4.tgz"
+dsh plugin add ".\dsh-db-0.4.1.tgz"
 ```
 
 Restart DSH Desktop afterwards. For a linked checkout instead (run `pnpm install` first), or from a plain PowerShell, use the bundled binaries directly:
@@ -43,7 +44,7 @@ $pnpm = "D:\Program Files\DeepSeek Harness\resources\runtime\primary-runtime\dep
 $dsh  = "D:\Program Files\DeepSeek Harness\resources\runtime\cli\bin\dsh.cmd"
 cd "<path-to-dsh-db>"
 & $node $pnpm pack
-& $dsh plugin --profile desktop add "$PWD\dsh-db-0.3.4.tgz"
+& $dsh plugin --profile desktop add "$PWD\dsh-db-0.4.1.tgz"
 ```
 
 ### From a terminal (plain dsh web)
@@ -69,7 +70,7 @@ The sidebar then shows a **Database** entry. Remove with `dsh plugin --profile d
 5. Write SQL and press `Ctrl+Enter` (`⌘+Enter` on macOS) to run. With a text selection, only the selection runs.
 6. The tree header has a table search box. It searches the current database/schema by default; the **This DB/All DBs** button switches scope. Up to 200 hits; clicking a hit locates the table and previews the first 100 rows. `Esc` clears it.
 7. Hover a connection row and click the power icon to close all its pooled sockets; the next query or tree expansion reconnects automatically.
-8. Right-click a table/view (including a search hit): view structure (columns, types, nullability, defaults, PK, extra, comments), preview the first 100 rows, copy name, ask agent, refresh columns. Right-click a connection to edit/disconnect/delete; right-click a column to insert it or copy it.
+8. Right-click a table/view (including a search hit): view structure (columns, types, nullability, defaults, PK, extra, comments), preview the first 100 rows, copy name, ask agent, refresh columns. The structure dialog's top input filters columns by name, type or comment. A column's context menu can insert it or copy it; right-click a connection to edit/disconnect/delete.
 
 ### SQL completion
 

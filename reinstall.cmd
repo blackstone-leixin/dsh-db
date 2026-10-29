@@ -2,8 +2,8 @@
 chcp 65001 >nul
 setlocal EnableExtensions
 
-rem One-click reinstall/update for the dsh-db plugin (0.3.4).
-rem 1. Packs the workspace into dsh-db-0.3.4.tgz.
+rem One-click reinstall/update for the dsh-db plugin (0.4.1).
+rem 1. Packs the workspace into dsh-db-0.4.1.tgz.
 rem 2. Installs it into the desktop profile with the app's bundled dsh.
 rem 3. If any of that fails, copies lib/ + package.json straight into the
 rem    installed package so the new code still loads after a restart.
@@ -20,10 +20,10 @@ if not exist "%APP_ROOT%\DeepSeek Harness.exe" set "APP_ROOT=C:\Program Files\De
 set "NODE=%APP_ROOT%\resources\runtime\primary-runtime\dependencies\node\bin\node.exe"
 set "PNPM=%APP_ROOT%\resources\runtime\primary-runtime\dependencies\pnpm\bin\pnpm.cjs"
 set "DSH=%APP_ROOT%\resources\runtime\cli\bin\dsh.cmd"
-set "TARBALL=%PLUGIN%dsh-db-0.3.4.tgz"
+set "TARBALL=%PLUGIN%dsh-db-0.4.1.tgz"
 
 echo.
-echo === dsh-db 0.3.4 reinstall ===
+echo === dsh-db 0.4.1 reinstall ===
 echo Plugin:  %PLUGIN%
 echo Profile: %PROFILE%
 echo.
@@ -76,7 +76,7 @@ if errorlevel 1 goto :fail
 copy /Y "%PLUGIN%cordis.patch.yml" "%INSTALLED%\cordis.patch.yml" >nul
 copy /Y "%PLUGIN%README.md" "%INSTALLED%\README.md" >nul
 copy /Y "%PLUGIN%README.en.md" "%INSTALLED%\README.en.md" >nul
-echo Copied. The installed package now contains 0.3.4 code.
+echo Copied. The installed package now contains 0.4.1 code.
 echo.
 echo [DONE] Quit DSH Desktop from the tray and start it again.
 echo        Then open the Database panel. SQL completion and "Ask agent" are active.
@@ -86,7 +86,7 @@ exit /b 0
 
 :success
 echo.
-echo [DONE] Installed dsh-db 0.3.4.
+echo [DONE] Installed dsh-db 0.4.1.
 echo        Quit DSH Desktop from the tray and start it again.
 echo        Then open the Database panel. SQL completion and "Ask agent" are active.
 echo.
